@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/demo-realm
+          jwk-set-uri: http://localhost:8081/realms/demo-realm/protocol/openid-connect/certs
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/demo-db
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+jwt:
+  auth:
+    converter:
+      resource-id: demo-client
+      principle-attribute: preferred_username
