@@ -7,7 +7,6 @@ import com.example.demo.models.Author;
 import com.example.demo.models.AuthorDTO;
 import com.example.demo.models.Blog;
 import com.example.demo.models.BlogDTO;
-import jdk.jfr.Label;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -26,13 +25,11 @@ class DemoApplicationTests {
 
 
     @Test
-    @Label("toBlogDTO - GC - 1")
     public void TestNormalBehaviourToBlogDTO() {
         BlogDTO blogDTO = Mapper.toBlogDTO(firstBlog);
         assertThat(IsBlogAndBlogDtoEqual(firstBlog, blogDTO)).isTrue();
     }
     @Test
-    @Label("toBlogDTO - GC - 2")
     public void TestWrongBlogsToBlogDTO() {
         BlogDTO blogDTO = Mapper.toBlogDTO(firstBlog);
         assertThat(IsBlogAndBlogDtoEqual(secondBlog, blogDTO)).isFalse();
